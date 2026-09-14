@@ -1,39 +1,65 @@
-# Chirpy Starter
+# Will Au
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+Source code for my personal website and technical blog:
 
-A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
+**[will-hcau.github.io](https://will-hcau.github.io)**
 
-## Why This Starter Exists
+This is where I keep technical notes, small projects, practical tips, and other things I learn along the way.
 
-When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
+## Built With
 
-To unlock all features, the following files must be present in your Jekyll site:
+- [Jekyll](https://jekyllrb.com/)
+- [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
+- [GitHub Pages](https://pages.github.com/)
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+The site started from the [Chirpy Starter](https://github.com/cotes2020/chirpy-starter) template.
+
+## Local Preview
+
+### Dev Container
+
+Open the repository in Visual Studio Code and run **Dev Containers: Reopen in Container**. Then start the site:
+
+```bash
+bundle exec jekyll serve --livereload
 ```
 
-This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
+### Local Ruby Installation
 
-## Usage
+With Ruby and Bundler installed:
 
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+```
 
-## Contributing
+Open [http://localhost:4000](http://localhost:4000) in a browser.
 
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+## Writing a Post
+
+Add Markdown posts to `_posts` using the following filename format:
+
+```text
+YYYY-MM-DD-post-title.md
+```
+
+Example front matter:
+
+```yaml
+---
+title: My Post Title
+date: 2026-09-14 12:00:00 +0900
+categories: [Category]
+tags: [tag]
+---
+```
+
+See Chirpy’s [Writing a New Post](https://chirpy.cotes.page/posts/write-a-new-post/) guide for the available options.
+
+## Publishing
+
+Pushes to `main` trigger the GitHub Actions workflow in `.github/workflows/pages-deploy.yml`. The workflow builds, checks, and deploys the site to GitHub Pages.
 
 ## License
 
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+The Chirpy Starter template and Chirpy theme are available under the [MIT License](LICENSE).
