@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">How a Vulkan swap chain works</title>
+  <desc id="desc">The GPU renders into one buffer while the display reads from another. The buffers exchange roles after each frame.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .small { font-size: 18px; }
+    .label { font-size: 22px; font-weight: 700; }
+    .title { font-size: 28px; font-weight: 800; }
+    .box { stroke: #27334d; stroke-width: 3; rx: 16; }
+    .arrow { stroke: #27334d; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    .buffer { stroke: #27334d; stroke-width: 3; rx: 12; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#27334d"/></marker>
+  </defs>
+  <rect width="960" height="430" fill="#f7f9fc"/>
+  <text x="480" y="45" text-anchor="middle" class="title">The swap chain: render one image, display another</text>
+
+  <rect x="45" y="105" width="260" height="240" class="box" fill="#dce8ff"/>
+  <text x="175" y="187" text-anchor="middle" class="label">GPU</text>
+  <text x="175" y="218" text-anchor="middle" class="small">renders a frame</text>
+
+  <path d="M305 155 H345" class="arrow">
+    <animate attributeName="d" values="M305 155 H345;M305 155 H345;M305 295 H345;M305 295 H345;M305 155 H345" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+  </path>
+
+  <g>
+    <rect x="345" y="105" width="220" height="100" class="buffer" fill="#bdeccf">
+      <animate attributeName="fill" values="#bdeccf;#bdeccf;#ffd7a3;#ffd7a3;#bdeccf" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="455" y="148" text-anchor="middle" class="label">Buffer A</text>
+    <text x="455" y="178" text-anchor="middle" class="small">
+      <tspan>being rendered</tspan>
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </text>
+    <text x="455" y="178" text-anchor="middle" class="small" opacity="0">being displayed
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <g>
+    <rect x="345" y="245" width="220" height="100" class="buffer" fill="#ffd7a3">
+      <animate attributeName="fill" values="#ffd7a3;#ffd7a3;#bdeccf;#bdeccf;#ffd7a3" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="455" y="288" text-anchor="middle" class="label">Buffer B</text>
+    <text x="455" y="318" text-anchor="middle" class="small">
+      <tspan>being displayed</tspan>
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </text>
+    <text x="455" y="318" text-anchor="middle" class="small" opacity="0">being rendered
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <path d="M565 295 H615" class="arrow">
+    <animate attributeName="d" values="M565 295 H615;M565 295 H615;M565 155 H615;M565 155 H615;M565 295 H615" keyTimes="0;.42;.48;.9;1" dur="4s" repeatCount="indefinite"/>
+  </path>
+  <rect x="615" y="105" width="260" height="240" class="box" fill="#fff3c4"/>
+  <text x="745" y="187" text-anchor="middle" class="label">Display</text>
+  <text x="745" y="218" text-anchor="middle" class="small">shows a complete frame</text>
+
+  <text x="480" y="395" text-anchor="middle" class="small">Once rendering finishes, the buffers switch roles for the next frame.</text>
+</svg>
