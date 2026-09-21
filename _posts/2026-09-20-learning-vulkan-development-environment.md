@@ -1,5 +1,5 @@
 ---
-title: "[Lesson 2] Building My Own Vulkan Learning Environment"
+title: "2. Building My Own Vulkan Learning Environment"
 date: 2026-09-20 12:00:00 +0900
 categories: [Graphics]
 tags: [vulkan, graphics]

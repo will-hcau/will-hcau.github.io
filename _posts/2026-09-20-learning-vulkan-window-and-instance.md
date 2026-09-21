@@ -1,5 +1,5 @@
 ---
-title: "[Lesson 3] Creating a Window and Vulkan Instance"
+title: "3. Creating a Window and Vulkan Instance"
 date: 2026-09-20 12:00:00 +0900
 categories: [Graphics]
 tags: [vulkan, graphics, glfw, c++]
