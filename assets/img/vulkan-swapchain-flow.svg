@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Animated Vulkan swapchain buffer flow</title>
+  <desc id="desc">Three image buffers rotate in a loop from a variable-speed GPU, through the swapchain queue, to a display with a constant refresh rate, and back to the GPU.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".18"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#718096"/>
+    </marker>
+    <path id="loop" d="M160 215 H1040 C1080 215 1080 345 1035 345 H165 C120 345 120 215 160 215" fill="none"/>
+    <style>
+      .label { font: 600 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #243b53; }
+      .small { font: 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52606d; }
+      .box { stroke: #d9e2ec; stroke-width: 2; }
+      .buffer { filter: url(#shadow); stroke: #fff; stroke-width: 3; }
+      .flow { fill: none; stroke: #9aa5b1; stroke-width: 3; stroke-dasharray: 8 9; marker-end: url(#arrow); }
+      .dot { fill: #f6ad55; stroke: #fff; stroke-width: 2; }
+      .buffer-a { animation: circulate 9s linear infinite; }
+      .buffer-b { animation: circulate 9s linear infinite; animation-delay: -3s; }
+      .buffer-c { animation: circulate 9s linear infinite; animation-delay: -6s; }
+      @keyframes circulate {
+        0% { offset-distance: 0%; opacity: 1; }
+        80% { opacity: 1; }
+        92% { opacity: .55; }
+        100% { offset-distance: 100%; opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .buffer-a, .buffer-b, .buffer-c { animation-play-state: paused; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="430" rx="18" fill="#f8fafc"/>
+
+  <path class="flow" d="M205 215 H370"/>
+  <path class="flow" d="M830 215 H995"/>
+  <path class="flow" d="M995 345 H205"/>
+
+  <rect class="box" x="45" y="145" width="160" height="140" rx="18" fill="#3f73b8"/>
+  <text class="label" x="125" y="205" text-anchor="middle" fill="#fff">GPU</text>
+  <text class="small" x="125" y="235" text-anchor="middle" fill="#e6f0ff">rendering</text>
+  <text class="small" x="125" y="257" text-anchor="middle" fill="#e6f0ff">variable speed</text>
+
+  <rect class="box" x="370" y="55" width="460" height="320" rx="28" fill="#e8f1fb"/>
+  <text class="label" x="600" y="105" text-anchor="middle">Swapchain queue</text>
+  <text class="small" x="600" y="130" text-anchor="middle">three presentable image buffers</text>
+  <rect x="435" y="155" width="330" height="120" rx="60" fill="#d4e2f2" stroke="#b7c9df" stroke-width="2"/>
+  <path d="M480 215 H720" stroke="#9eb4cc" stroke-width="3" stroke-dasharray="8 9" marker-end="url(#arrow)"/>
+  <text class="small" x="600" y="305" text-anchor="middle">acquire → render → present</text>
+
+  <rect class="box" x="995" y="145" width="160" height="140" rx="18" fill="#3c9b7a"/>
+  <rect x="1030" y="176" width="90" height="57" rx="5" fill="#d9f7e8"/>
+  <g>
+    <rect x="1030" y="176" width="90" height="57" rx="5" fill="#f6ad55">
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="0;0;1;1;0;0" keyTimes="0;.37;.38;.71;.72;1" calcMode="discrete"/>
+    </rect>
+    <text x="1075" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#fff">
+      A
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="0;0;1;1;0;0" keyTimes="0;.37;.38;.71;.72;1" calcMode="discrete"/>
+    </text>
+  </g>
+  <g>
+    <rect x="1030" y="176" width="90" height="57" rx="5" fill="#ed6a5a">
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="0;0;1;1;0;0" keyTimes="0;.04;.05;.37;.38;1" calcMode="discrete"/>
+    </rect>
+    <text x="1075" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#fff">
+      B
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="0;0;1;1;0;0" keyTimes="0;.04;.05;.37;.38;1" calcMode="discrete"/>
+    </text>
+  </g>
+  <g>
+    <rect x="1030" y="176" width="90" height="57" rx="5" fill="#6c63ff">
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="1;1;0;0;1;1" keyTimes="0;.04;.05;.71;.72;1" calcMode="discrete"/>
+    </rect>
+    <text x="1075" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#fff">
+      C
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+        values="1;1;0;0;1;1" keyTimes="0;.04;.05;.71;.72;1" calcMode="discrete"/>
+    </text>
+  </g>
+  <path d="M1075 233 V248 M1055 253 H1095" stroke="#d9f7e8" stroke-width="4" stroke-linecap="round"/>
+  <text class="label" x="1075" y="278" text-anchor="middle" fill="#fff">display</text>
+
+  <text class="small" x="600" y="408" text-anchor="middle">The display consumes one completed buffer at each fixed refresh interval.</text>
+  <text class="small" x="125" y="125" text-anchor="middle">fast / variable</text>
+  <text class="small" x="1075" y="125" text-anchor="middle">60 Hz example</text>
+  <g class="buffer buffer-a" style="offset-path: path('M160 215 H1040 C1080 215 1080 345 1035 345 H165 C120 345 120 215 160 215')">
+    <rect x="-26" y="-16" width="52" height="32" rx="7" fill="#f6ad55"/>
+    <text x="0" y="6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#fff">A</text>
+  </g>
+  <g class="buffer buffer-b" style="offset-path: path('M160 215 H1040 C1080 215 1080 345 1035 345 H165 C120 345 120 215 160 215')">
+    <rect x="-26" y="-16" width="52" height="32" rx="7" fill="#ed6a5a"/>
+    <text x="0" y="6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#fff">B</text>
+  </g>
+  <g class="buffer buffer-c" style="offset-path: path('M160 215 H1040 C1080 215 1080 345 1035 345 H165 C120 345 120 215 160 215')">
+    <rect x="-26" y="-16" width="52" height="32" rx="7" fill="#6c63ff"/>
+    <text x="0" y="6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#fff">C</text>
+  </g>
+</svg>

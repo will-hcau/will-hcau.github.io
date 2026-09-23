@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Vulkan presentation mode comparison</title>
+  <desc id="desc">Animated comparison showing pending buffers A, B, and C in FIFO, Mailbox, and Immediate presentation modes.</desc>
+  <style>
+    .title { font: 700 22px system-ui, sans-serif; fill: #243b53; }
+    .text { font: 16px system-ui, sans-serif; fill: #52606d; }
+    .small { font: 14px system-ui, sans-serif; fill: #52606d; }
+    .lane { fill: #f8fafc; stroke: #d9e2ec; stroke-width: 2; }
+    .screen { stroke: #3c9b7a; stroke-width: 2; }
+    .queue { fill: #e8f1fb; stroke: #b7c9df; stroke-width: 2; }
+    .buffer { stroke: #fff; stroke-width: 2; }
+    .fifo-screen { animation: fifo-screen 6s steps(1, end) infinite; }
+    @keyframes fifo-screen { 0%, 32% { fill: #f6ad55; } 33%, 65% { fill: #ed6a5a; } 66%, 100% { fill: #6c63ff; } }
+    .mailbox-screen { animation: mailbox-screen 6s steps(1, end) infinite; }
+    @keyframes mailbox-screen { 0%, 35% { fill: #f6ad55; } 36%, 100% { fill: #6c63ff; } }
+    .immediate-top { animation: immediate-top 3s steps(1, end) infinite; }
+    @keyframes immediate-top { 0%, 49% { fill: #f6ad55; } 50%, 100% { fill: #ed6a5a; } }
+    .fifo-queue-a { animation: queue-a 6s steps(1, end) infinite; }
+    .fifo-queue-b { animation: queue-b 6s steps(1, end) infinite; }
+    .fifo-queue-c { animation: queue-c 6s steps(1, end) infinite; }
+    @keyframes queue-a { 0%, 32% { opacity: 1; } 33%, 100% { opacity: 0; } }
+    @keyframes queue-b { 0%, 65% { opacity: 1; } 66%, 100% { opacity: 0; } }
+    @keyframes queue-c { 0%, 98% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    .mailbox-queue-a { animation: mailbox-queue-a 6s steps(1, end) infinite; }
+    .mailbox-queue-c { animation: mailbox-queue-c 6s steps(1, end) infinite; }
+    @keyframes mailbox-queue-a { 0%, 35% { opacity: 1; } 36%, 100% { opacity: 0; } }
+    @keyframes mailbox-queue-c { 0%, 35% { opacity: 0; } 36%, 98% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .fifo-screen, .mailbox-screen, .immediate-top { animation-play-state: paused; } }
+  </style>
+  <rect width="1200" height="560" rx="18" fill="#fff"/>
+
+  <g transform="translate(25 25)">
+    <rect class="lane" width="350" height="490" rx="18"/>
+    <text class="title" x="175" y="42" text-anchor="middle">FIFO</text>
+    <text class="text" x="175" y="68" text-anchor="middle">display frames in order</text>
+    <rect class="screen fifo-screen" x="60" y="95" width="230" height="135" rx="8" fill="#f6ad55"/>
+    <text x="175" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="700" fill="#fff">A → B → C</text>
+    <text class="small" x="175" y="258" text-anchor="middle">displayed image</text>
+    <text class="text" x="175" y="305" text-anchor="middle">pending queue</text>
+    <rect class="queue" x="65" y="325" width="220" height="58" rx="10"/>
+    <rect class="buffer fifo-queue-a" x="78" y="338" width="45" height="32" rx="5" fill="#f6ad55"/><text class="fifo-queue-a" x="100" y="360" text-anchor="middle" fill="#fff" font-weight="700">A</text>
+    <rect class="buffer fifo-queue-b" x="153" y="338" width="45" height="32" rx="5" fill="#ed6a5a"/><text class="fifo-queue-b" x="175" y="360" text-anchor="middle" fill="#fff" font-weight="700">B</text>
+    <rect class="buffer fifo-queue-c" x="228" y="338" width="45" height="32" rx="5" fill="#6c63ff"/><text class="fifo-queue-c" x="250" y="360" text-anchor="middle" fill="#fff" font-weight="700">C</text>
+    <text class="small" x="175" y="420" text-anchor="middle">A → B → C</text>
+    <text class="small" x="175" y="448" text-anchor="middle">older buffers wait</text>
+  </g>
+
+  <g transform="translate(425 25)">
+    <rect class="lane" width="350" height="490" rx="18"/>
+    <text class="title" x="175" y="42" text-anchor="middle">Mailbox</text>
+    <text class="text" x="175" y="68" text-anchor="middle">display the newest frame</text>
+    <rect class="screen mailbox-screen" x="60" y="95" width="230" height="135" rx="8" fill="#f6ad55"/>
+    <text x="175" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="700" fill="#fff">A → C</text>
+    <text class="small" x="175" y="258" text-anchor="middle">displayed image</text>
+    <text class="text" x="175" y="305" text-anchor="middle">pending queue</text>
+    <rect class="queue" x="65" y="325" width="220" height="58" rx="10"/>
+    <rect class="buffer mailbox-queue-a" x="78" y="338" width="45" height="32" rx="5" fill="#f6ad55"/><text class="mailbox-queue-a" x="100" y="360" text-anchor="middle" fill="#fff" font-weight="700">A</text>
+    <g>
+      <rect class="buffer" x="153" y="338" width="45" height="32" rx="5" fill="#ed6a5a"/>
+      <text x="175" y="360" text-anchor="middle" fill="#fff" font-weight="700">B</text>
+      <rect class="buffer mailbox-queue-c" x="153" y="338" width="45" height="32" rx="5" fill="#6c63ff"/>
+      <text class="mailbox-queue-c" x="175" y="360" text-anchor="middle" fill="#fff" font-weight="700">C</text>
+    </g>
+    <text class="small" x="175" y="420" text-anchor="middle">A → C</text>
+    <text class="small" x="175" y="448" text-anchor="middle">B is replaced by C</text>
+  </g>
+
+  <g transform="translate(825 25)">
+    <rect class="lane" width="350" height="490" rx="18"/>
+    <text class="title" x="175" y="42" text-anchor="middle">Immediate</text>
+    <text class="text" x="175" y="68" text-anchor="middle">show without waiting</text>
+    <rect class="screen" x="60" y="95" width="230" height="135" rx="8" fill="#f6ad55"/>
+    <rect class="immediate-top" x="60" y="95" width="230" height="67" rx="8"/>
+    <text x="175" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="#fff">A / B</text>
+    <path d="M60 162 H290" stroke="#fff" stroke-width="3" stroke-dasharray="6 6"/>
+    <text class="small" x="175" y="258" text-anchor="middle">two frames on one display refresh</text>
+    <text class="text" x="175" y="305" text-anchor="middle">pending queue</text>
+    <rect class="queue" x="65" y="325" width="220" height="58" rx="10"/>
+    <rect class="buffer" x="78" y="338" width="45" height="32" rx="5" fill="#f6ad55"/><text x="100" y="360" text-anchor="middle" fill="#fff" font-weight="700">A</text>
+    <rect class="buffer" x="153" y="338" width="45" height="32" rx="5" fill="#ed6a5a"/><text x="175" y="360" text-anchor="middle" fill="#fff" font-weight="700">B</text>
+    <rect class="buffer" x="228" y="338" width="45" height="32" rx="5" fill="#6c63ff"/><text x="250" y="360" text-anchor="middle" fill="#fff" font-weight="700">C</text>
+    <text class="small" x="175" y="420" text-anchor="middle">no refresh-boundary wait</text>
+    <text class="small" x="175" y="448" text-anchor="middle">tearing is possible</text>
+  </g>
+</svg>
