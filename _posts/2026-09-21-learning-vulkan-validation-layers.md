@@ -1,7 +1,7 @@
 ---
 title: "4. Adding Vulkan Validation Layers"
 date: 2026-09-21 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, validation, c++]
 description: Enabling Vulkan's validation layer and registering a debug callback.
 ---

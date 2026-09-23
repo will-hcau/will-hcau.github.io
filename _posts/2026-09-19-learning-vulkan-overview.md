@@ -1,7 +1,7 @@
 ---
 title: "1. Learning Vulkan — Why It Exists and How a Triangle Gets Drawn"
 date: 2026-09-19 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics]
 description: A beginner-friendly overview of Vulkan's design tradeoffs and the high-level flow of rendering a triangle.
 ---

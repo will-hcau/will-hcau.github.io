@@ -1,7 +1,7 @@
 ---
 title: "3. Creating a Window and Vulkan Instance"
 date: 2026-09-20 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, glfw, c++]
 description: Creating a GLFW window, then connecting the application to Vulkan with a RAII instance.
 ---

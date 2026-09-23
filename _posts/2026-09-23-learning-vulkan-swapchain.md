@@ -1,7 +1,7 @@
 ---
 title: "8. Creating a Vulkan Swapchain"
 date: 2026-09-23 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]
 description: Understanding how a Vulkan swapchain connects fast GPU rendering to a display with a fixed refresh rate.
 ---

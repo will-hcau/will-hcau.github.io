@@ -1,7 +1,7 @@
 ---
 title: "2. Building My Own Vulkan Learning Environment"
 date: 2026-09-20 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics]
 description: Setting up a small CMake-based Vulkan project that builds its tutorial dependencies from source.
 ---

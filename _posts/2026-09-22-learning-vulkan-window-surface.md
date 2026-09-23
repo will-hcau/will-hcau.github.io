@@ -1,7 +1,7 @@
 ---
 title: "7. Creating a Vulkan Window Surface"
 date: 2026-09-22 15:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++, glfw]
 description: Connecting Vulkan to a platform window with a window surface and a presentation-capable queue.
 ---

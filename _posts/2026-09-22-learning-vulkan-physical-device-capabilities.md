@@ -1,7 +1,7 @@
 ---
 title: "5. Checking Vulkan Physical Device Capabilities"
 date: 2026-09-22 12:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]
 description: Enumerating GPUs and selecting one that supports the Vulkan features, queues, and extensions our application needs.
 ---

@@ -1,7 +1,7 @@
 ---
 title: "6. Creating a Vulkan Logical Device"
 date: 2026-09-22 13:00:00 +0900
-categories: [Graphics]
+categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]
 description: Creating a logical device, enabling application features, and retrieving a graphics queue.
 ---
