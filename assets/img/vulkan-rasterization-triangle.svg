@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Rasterization interpolates values across a triangle</title>
+  <desc id="desc">A triangle with red, blue, and green vertices. The interior is divided into fragments whose colours are interpolated between the vertex colours.</desc>
+  <defs>
+    <linearGradient id="triangleFill" x1="50%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f05d5e"/><stop offset="52%" stop-color="#9b8bd4"/><stop offset="100%" stop-color="#3273c5"/></linearGradient>
+    <linearGradient id="greenBlend" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9b8bd4" stop-opacity="0"/><stop offset="100%" stop-color="#37b878" stop-opacity=".9"/></linearGradient>
+    <clipPath id="triangleClip"><path d="M360 65 L135 320 L585 320 Z"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .label { font-size: 22px; font-weight: 700; }
+    .small { font-size: 18px; }
+    .grid { stroke: #ffffff; stroke-width: 2; opacity: .6; }
+  </style>
+  <rect width="720" height="400" fill="#f7f9fc"/>
+  <text x="360" y="35" text-anchor="middle" class="label">Rasterization: one triangle becomes covered fragments</text>
+  <g clip-path="url(#triangleClip)">
+    <rect x="120" y="60" width="480" height="270" fill="url(#triangleFill)"/>
+    <rect x="120" y="60" width="480" height="270" fill="url(#greenBlend)"/>
+    <path d="M180 130 H540 M150 180 H570 M125 230 H595 M105 280 H615 M225 80 V330 M285 70 V330 M345 60 V330 M405 60 V330 M465 70 V330 M525 80 V330" class="grid"/>
+  </g>
+  <path d="M360 65 L135 320 L585 320 Z" fill="none" stroke="#27334d" stroke-width="4"/>
+  <circle cx="360" cy="65" r="8" fill="#f05d5e" stroke="#27334d" stroke-width="3"/>
+  <circle cx="135" cy="320" r="8" fill="#3273c5" stroke="#27334d" stroke-width="3"/>
+  <circle cx="585" cy="320" r="8" fill="#37b878" stroke="#27334d" stroke-width="3"/>
+  <text x="360" y="58" text-anchor="middle" class="small">red vertex</text>
+  <text x="125" y="355" text-anchor="middle" class="small">blue vertex</text>
+  <text x="595" y="355" text-anchor="middle" class="small">green vertex</text>
+  <text x="360" y="385" text-anchor="middle" class="small">Each covered location receives interpolated values.</text>
+</svg>

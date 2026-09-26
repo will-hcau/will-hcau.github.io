@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified Vulkan graphics pipeline</title>
+  <desc id="desc">Vertex and index buffers pass through input assembly, programmable vertex, tessellation, and geometry shaders, fixed-function rasterization, a programmable fragment shader, and fixed-function color blending before reaching the framebuffer.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .title { font-size: 30px; font-weight: 800; }
+    .label { font-size: 20px; font-weight: 700; }
+    .small { font-size: 16px; }
+    .box { stroke: #27334d; stroke-width: 3; rx: 14; }
+    .arrow { stroke: #27334d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .fixed { fill: #dce8ff; }
+    .programmable { fill: #ffdcb8; }
+    .optional { stroke-dasharray: 8 6; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#27334d"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" fill="#f7f9fc"/>
+  <text x="600" y="46" text-anchor="middle" class="title">From vertices to pixels</text>
+  <text x="600" y="75" text-anchor="middle" class="small">Each stage solves one part of the journey from scene data to a framebuffer image.</text>
+
+  <rect x="35" y="275" width="130" height="90" class="box" fill="#bdeccf"/>
+  <text x="100" y="312" text-anchor="middle" class="label">Buffers</text>
+  <text x="100" y="338" text-anchor="middle" class="small">vertices</text>
+  <text x="100" y="358" text-anchor="middle" class="small">and indices</text>
+
+  <path d="M166 320 H190" class="arrow"/>
+  <rect x="190" y="275" width="145" height="90" class="box fixed"/>
+  <text x="262" y="312" text-anchor="middle" class="label">Input</text>
+  <text x="262" y="338" text-anchor="middle" class="small">assembly</text>
+
+  <path d="M335 320 H360" class="arrow"/>
+  <rect x="360" y="275" width="145" height="90" class="box programmable"/>
+  <text x="432" y="312" text-anchor="middle" class="label">Vertex</text>
+  <text x="432" y="338" text-anchor="middle" class="small">shader</text>
+
+  <path d="M505 320 H530" class="arrow"/>
+  <rect x="530" y="190" width="145" height="90" class="box programmable optional"/>
+  <text x="602" y="227" text-anchor="middle" class="label">Tessellation</text>
+  <text x="602" y="253" text-anchor="middle" class="small">optional</text>
+  <path d="M602 280 V360" class="arrow"/>
+  <rect x="530" y="360" width="145" height="90" class="box programmable optional"/>
+  <text x="602" y="397" text-anchor="middle" class="label">Geometry</text>
+  <text x="602" y="423" text-anchor="middle" class="small">optional</text>
+  <path d="M675 405 H700 V320 H725" class="arrow"/>
+
+  <rect x="725" y="275" width="145" height="90" class="box fixed"/>
+  <text x="797" y="312" text-anchor="middle" class="label">Rasterization</text>
+  <text x="797" y="338" text-anchor="middle" class="small">triangles → fragments</text>
+
+  <path d="M870 320 H895" class="arrow"/>
+  <rect x="895" y="275" width="145" height="90" class="box programmable"/>
+  <text x="967" y="312" text-anchor="middle" class="label">Fragment</text>
+  <text x="967" y="338" text-anchor="middle" class="small">shader</text>
+
+  <path d="M1040 320 H1065" class="arrow"/>
+  <rect x="1065" y="275" width="105" height="90" class="box fixed"/>
+  <text x="1117" y="312" text-anchor="middle" class="label">Blend</text>
+  <text x="1117" y="338" text-anchor="middle" class="small">colours</text>
+
+  <path d="M1117 365 V500" class="arrow"/>
+  <rect x="1010" y="500" width="215" height="75" class="box" fill="#bdeccf"/>
+  <text x="1117" y="532" text-anchor="middle" class="label">Framebuffer</text>
+  <text x="1117" y="555" text-anchor="middle" class="small">final pixel colours</text>
+
+  <rect x="55" y="525" width="24" height="24" class="box fixed"/>
+  <text x="90" y="544" class="small">fixed-function: configure the built-in operation</text>
+  <rect x="55" y="575" width="24" height="24" class="box programmable"/>
+  <text x="90" y="594" class="small">programmable: provide shader code</text>
+</svg>
