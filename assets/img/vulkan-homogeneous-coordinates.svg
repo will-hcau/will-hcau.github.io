@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">A triangle in normalized device coordinates</title>
+  <desc id="desc">A Vulkan normalized device coordinate grid with Y increasing downward and a triangle whose vertices are at zero minus zero point five, zero point five zero point five, and minus zero point five zero point five.</desc>
+  <rect width="900" height="520" fill="#0f172a" rx="18"/>
+  <g stroke="#334155" stroke-width="1">
+    <path d="M120 70H780M120 165H780M120 260H780M120 355H780M120 450H780"/>
+    <path d="M120 70V450M285 70V450M450 70V450M615 70V450M780 70V450"/>
+  </g>
+  <g stroke="#cbd5e1" stroke-width="2">
+    <path d="M120 260H800"/>
+    <path d="M450 470V50"/>
+  </g>
+  <path d="M450 165 L615 355 L285 355 Z" fill="#38bdf8" fill-opacity=".78" stroke="#bae6fd" stroke-width="4"/>
+  <g fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20">
+    <text x="810" y="267">x</text><text x="460" y="42">y</text>
+    <text x="100" y="286">−1</text><text x="442" y="286">0</text><text x="770" y="286">1</text>
+    <text x="458" y="455">1</text><text x="458" y="78">−1</text>
+    <text x="466" y="158">(0, −0.5)</text>
+    <text x="625" y="365">(0.5, 0.5)</text>
+    <text x="155" y="365">(−0.5, 0.5)</text>
+  </g>
+  <text x="120" y="35" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="24" font-weight="600">Normalized device coordinates</text>
+</svg>
