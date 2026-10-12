@@ -37,15 +37,13 @@
   <text x="432" y="312" text-anchor="middle" class="label">Vertex</text>
   <text x="432" y="338" text-anchor="middle" class="small">shader</text>
 
-  <path d="M505 320 H530" class="arrow"/>
+  <path d="M505 320 H725" class="arrow"/>
   <rect x="530" y="190" width="145" height="90" class="box programmable optional"/>
   <text x="602" y="227" text-anchor="middle" class="label">Tessellation</text>
   <text x="602" y="253" text-anchor="middle" class="small">optional</text>
-  <path d="M602 280 V360" class="arrow"/>
   <rect x="530" y="360" width="145" height="90" class="box programmable optional"/>
   <text x="602" y="397" text-anchor="middle" class="label">Geometry</text>
   <text x="602" y="423" text-anchor="middle" class="small">optional</text>
-  <path d="M675 405 H700 V320 H725" class="arrow"/>
 
   <rect x="725" y="275" width="145" height="90" class="box fixed"/>
   <text x="797" y="312" text-anchor="middle" class="label">Rasterization</text>
