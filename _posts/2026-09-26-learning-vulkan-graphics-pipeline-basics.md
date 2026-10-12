@@ -10,8 +10,8 @@ Today I read the [Introduction to Graphics Pipeline Basics](https://docs.vulkan.
 
 Before writing that code, I wanted to understand the larger picture. The **graphics pipeline** is a sequence of operations that turns **vertex data** into **pixels** in a **framebuffer**. That sentence sounds simple, but the diagram contains many unfamiliar stages:
 
-<object type="image/svg+xml" data="{{ '/assets/img/vulkan-graphics-pipeline.svg' | relative_url }}" width="100%" height="auto" style="max-width: 100%;" aria-label="Diagram showing the Vulkan graphics pipeline from vertex buffers to the framebuffer">
-  <a href="{{ '/assets/img/vulkan-graphics-pipeline.svg' | relative_url }}">View the graphics pipeline diagram</a>
+<object type="image/svg+xml" data="{{ '/assets/img/vulkan-graphics-pipeline.svg?v=2' | relative_url }}" width="100%" height="auto" style="max-width: 100%;" aria-label="Diagram showing the Vulkan graphics pipeline from vertex buffers to the framebuffer">
+  <a href="{{ '/assets/img/vulkan-graphics-pipeline.svg?v=2' | relative_url }}">View the graphics pipeline diagram</a>
 </object>
 
 The pipeline is easier to understand if we keep asking two questions:
