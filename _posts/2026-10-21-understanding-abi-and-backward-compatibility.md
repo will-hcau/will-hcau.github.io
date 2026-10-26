@@ -2,7 +2,7 @@
 title: "Why Old Binaries Still Work: Understanding ABI and Backward Compatibility"
 date: 2026-10-21 13:00:00 +0900
 categories: [Software Engineering]
-tags: [c, abi, backward-compatibility, shared-libraries, linux]
+tags: [c-language, abi, backward-compatibility, shared-libraries, linux]
 description: "Explore dynamic linking and binary compatibility through small C experiments, disassembly, and a struct-layout bug caught by AddressSanitizer."
 ---
 
