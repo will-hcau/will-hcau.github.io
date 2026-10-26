@@ -1,5 +1,5 @@
 ---
-title: "14. From Render Passes and Framebuffers to Dynamic Rendering"
+title: "Episode 14: From Render Passes and Framebuffers to Dynamic Rendering"
 date: 2026-10-16 20:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, rendering, gpu, c++]

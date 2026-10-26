@@ -1,5 +1,5 @@
 ---
-title: "1. Learning Vulkan — Why It Exists and How a Triangle Gets Drawn"
+title: "Episode 1: Learning Vulkan — Why It Exists and How a Triangle Gets Drawn"
 date: 2026-09-19 12:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics]

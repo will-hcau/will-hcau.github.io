@@ -1,5 +1,5 @@
 ---
-title: "12. Shader Modules: From Slang to a Vulkan Pipeline"
+title: "Episode 12: Shader Modules: From Slang to a Vulkan Pipeline"
 date: 2026-10-03 15:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, shaders, slang, spir-v, graphics, gpu, c++]

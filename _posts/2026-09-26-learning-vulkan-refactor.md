@@ -1,5 +1,5 @@
 ---
-title: "10. Refactoring the Vulkan Setup"
+title: "Episode 10: Refactoring the Vulkan Setup"
 date: 2026-09-26 13:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]

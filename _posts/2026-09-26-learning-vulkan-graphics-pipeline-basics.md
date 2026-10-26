@@ -1,5 +1,5 @@
 ---
-title: "11. Graphics Pipeline Basics"
+title: "Episode 11: Graphics Pipeline Basics"
 date: 2026-09-26 15:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]

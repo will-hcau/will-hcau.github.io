@@ -1,5 +1,5 @@
 ---
-title: "6. Creating a Vulkan Logical Device"
+title: "Episode 6: Creating a Vulkan Logical Device"
 date: 2026-09-22 13:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]

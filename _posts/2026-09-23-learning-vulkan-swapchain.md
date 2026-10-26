@@ -1,5 +1,5 @@
 ---
-title: "8. Creating a Vulkan Swapchain"
+title: "Episode 8: Creating a Vulkan Swapchain"
 date: 2026-09-23 12:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]

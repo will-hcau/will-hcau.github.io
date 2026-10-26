@@ -1,5 +1,5 @@
 ---
-title: "7. Creating a Vulkan Window Surface"
+title: "Episode 7: Creating a Vulkan Window Surface"
 date: 2026-09-22 15:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++, glfw]

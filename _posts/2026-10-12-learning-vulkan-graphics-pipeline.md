@@ -1,5 +1,5 @@
 ---
-title: "13. Building a Vulkan Graphics Pipeline"
+title: "Episode 13: Building a Vulkan Graphics Pipeline"
 date: 2026-10-12 20:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, gpu, c++]

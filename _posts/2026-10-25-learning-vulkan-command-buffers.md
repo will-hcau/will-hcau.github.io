@@ -1,5 +1,5 @@
 ---
-title: "15. Understanding Vulkan Command Buffers"
+title: "Episode 15: Understanding Vulkan Command Buffers"
 date: 2026-10-24 20:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, rendering, gpu, c++]

@@ -1,5 +1,5 @@
 ---
-title: "4. Adding Vulkan Validation Layers"
+title: "Episode 4: Adding Vulkan Validation Layers"
 date: 2026-09-21 12:00:00 +0900
 categories: [Vulkan]
 tags: [vulkan, graphics, validation, c++]
