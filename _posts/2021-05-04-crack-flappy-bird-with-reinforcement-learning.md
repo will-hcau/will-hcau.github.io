@@ -1,5 +1,7 @@
 ---
 title: "Crack flappy bird with reinforcement learning"
+image:
+  path: /assets/img/flappy-bird-rl/flappy-bird.jpeg
 date: 2021-05-04 00:00:00 +0900
 categories: [Machine Learning]
 tags: [reinforcement-learning, machine-learning, ai, double-q-learning, flappy-bird]
@@ -8,9 +10,6 @@ description: "My 2021 experiment training a Flappy Bird agent with deep Q-learni
 
 > Originally published on [Medium on May 4, 2021](https://medium.com/@willhcau/crack-flappy-bird-with-reinforcement-learning-9dbabea9de3f). Migrated to this blog with the original text and results preserved. Framework names and environment links reflect the original 2021 article.
 {: .prompt-info }
-
-![Flappy Bird](/assets/img/flappy-bird-rl/flappy-bird.jpeg)
-_Flappy Bird_
 
 After learning basic knowledge of deep reinforcement learning algorithm, I started to think about implementing something interesting to practice. I have already train agents to solve simple openAI gym games like CartPole, Pendulum and LunarLander. Now let’s looks for something more interesting and the first thing comes to my mind is Flappy bird. A well known game which human found it very difficult to get high score.
 
