@@ -1,5 +1,8 @@
 ---
 title: Hello World
+image:
+  path: /assets/img/hello-world-engineer-cover.png
+pin: true
 date: 2026-09-14 12:00:00 +0900
 categories: [Blog]
 tags: [hello, introduction]
