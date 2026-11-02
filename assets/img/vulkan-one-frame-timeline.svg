@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430" role="img" aria-labelledby="title desc">
+<title id="title">One slot: prepare, render, then reuse</title><desc id="desc">CPU preparation, GPU execution and possible presentation scheduling. With two slots the CPU can prepare B while the GPU renders A. Times are illustrative. Letters identify submissions, not image indices.</desc>
+<defs><pattern id="wait" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="#cbd5e1" stroke-width="1"/></pattern></defs>
+<rect width="1100" height="430" rx="18" fill="#f8fafc"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#0f172a">
+<text x="32" y="43" font-size="25" font-weight="700">One slot: prepare, render, then reuse</text>
+<text x="32" y="70" font-size="15" fill="#475569">A / B / C = successive submissions · schematic time, not to scale</text>
+<text x="32" y="145" font-size="17" font-weight="600">CPU</text>
+<text x="32" y="225" font-size="17" font-weight="600">GPU</text>
+<text x="32" y="305" font-size="17" font-weight="600">Presentation</text>
+<path d="M180 103H1055 M180 183H1055 M180 263H1055 M180 343H1055" stroke="#cbd5e1"/>
+<path d="M180 370H1055l-9 -5m9 5l-9 5" fill="none" stroke="#64748b" stroke-width="2"/>
+<text x="1000" y="396" font-size="14" fill="#475569">Time →</text>
+<text x="32" y="417" font-size="14" fill="#475569">Presentation bands show possible overlap, not guaranteed display timing.</text>
+<rect x='180' y='118' width='160' height='44' rx='7' fill='#dbeafe' stroke='#94a3b8'/><text x='260' y='145' text-anchor='middle' font-size='15'>Prepare A</text>
+<rect x='340' y='118' width='200' height='44' rx='7' fill='url(#wait)' stroke='#94a3b8'/><text x='440' y='145' text-anchor='middle' font-size='15'>Wait for A</text>
+<rect x='540' y='118' width='160' height='44' rx='7' fill='#dbeafe' stroke='#94a3b8'/><text x='620' y='145' text-anchor='middle' font-size='15'>Prepare B</text>
+<rect x='700' y='118' width='200' height='44' rx='7' fill='url(#wait)' stroke='#94a3b8'/><text x='800' y='145' text-anchor='middle' font-size='15'>Wait for B</text>
+<rect x='900' y='118' width='150' height='44' rx='7' fill='#dbeafe' stroke='#94a3b8'/><text x='975' y='145' text-anchor='middle' font-size='15'>Prepare C</text>
+<rect x='340' y='198' width='200' height='44' rx='7' fill='#ccfbf1' stroke='#94a3b8'/><text x='440' y='225' text-anchor='middle' font-size='15'>Render A</text>
+<rect x='540' y='198' width='160' height='44' rx='7' fill='url(#wait)' stroke='#94a3b8'/><text x='620' y='225' text-anchor='middle' font-size='15'>No new work</text>
+<rect x='700' y='198' width='200' height='44' rx='7' fill='#ccfbf1' stroke='#94a3b8'/><text x='800' y='225' text-anchor='middle' font-size='15'>Render B</text>
+<rect x='900' y='198' width='150' height='44' rx='7' fill='url(#wait)' stroke='#94a3b8'/><text x='975' y='225' text-anchor='middle' font-size='15'>No new work</text>
+<rect x='540' y='278' width='360' height='44' rx='7' fill='#ede9fe' stroke='#94a3b8'/><text x='720' y='305' text-anchor='middle' font-size='15'>Image for A</text>
+<rect x='900' y='278' width='150' height='44' rx='7' fill='#ede9fe' stroke='#94a3b8'/><text x='975' y='305' text-anchor='middle' font-size='15'>Image for B</text>
+</g></svg>

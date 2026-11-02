@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1310" viewBox="0 0 1320 1310" role="img" aria-labelledby="title desc">
+<title id="title">One frame loop: who waits for whom?</title>
+<desc id="desc">Time flows down. CPU steps: 1 wait for this slot's fence, 2 acquire an image, 3 check its tracked graphics fence, 4 record commands, 5 reset the slot fence, 6 submit, 7 request presentation, 8 advance the slot. GPU work waits for image availability. Presentation waits for render-finished. A submission fence allows later CPU slot reuse, not proof of presentation completion. Positions are schematic.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#475569"/></marker><marker id="signal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b45309"/></marker>
+<style>text{font-family:Segoe UI,Arial,sans-serif;fill:#0f172a}.heading{font-size:25px;font-weight:700}.lane{font-size:18px;font-weight:700}.label{font-size:16px;font-weight:600}.small{font-size:14px;fill:#475569}.flow{fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow)}.signal{fill:none;stroke:#b45309;stroke-width:2.5;stroke-dasharray:7 5;marker-end:url(#signal)}.note{font-size:14px;fill:#92400e}</style></defs>
+<rect width="1320" height="1310" rx="18" fill="#f8fafc"/>
+<text x="32" y="43" class="heading">One frame loop: who waits for whom?</text>
+<text x="32" y="73" class="small">Time flows down · Solid arrows: next action / request · Dashed amber arrows: signal → wait dependency</text>
+<rect x="55" y="100" width="445" height="915" rx="12" fill="#eff6ff"/>
+<rect x="565" y="100" width="340" height="915" rx="12" fill="#f0fdfa"/>
+<rect x="995" y="100" width="300" height="1135" rx="12" fill="#f5f3ff"/>
+<text x="75" y="128" class="lane">CPU · current frame slot</text>
+<text x="590" y="128" class="lane">GPU · graphics submissions</text>
+<text x="1010" y="128" class="lane">Presentation / acquisition</text>
+<path d="M28 150V1000" class="flow"/>
+<rect x='75' y='150' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='180' r='16' fill='#1d4ed8'/><text x='102' y='186' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>1</text><text x='130' y='176' class='label'>Wait for this slot&apos;s fence</text><text x='130' y='198' class='small'>Safe to reuse its command buffer</text>
+<path d='M275 210V245' class='flow'/>
+<rect x='75' y='250' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='280' r='16' fill='#1d4ed8'/><text x='102' y='286' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>2</text><text x='130' y='276' class='label'>Acquire an image</text><text x='130' y='298' class='small'>Get imageIndex; acquisition can block</text>
+<path d='M275 310V345' class='flow'/>
+<rect x='75' y='350' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='380' r='16' fill='#1d4ed8'/><text x='102' y='386' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>3</text><text x='130' y='376' class='label'>Check this image&apos;s tracked fence</text><text x='130' y='398' class='small'>Wait if an entry exists and is not done</text>
+<path d='M275 410V445' class='flow'/>
+<rect x='75' y='450' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='480' r='16' fill='#1d4ed8'/><text x='102' y='486' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>4</text><text x='130' y='476' class='label'>Record rendering commands</text><text x='130' y='498' class='small'>This slot&apos;s buffer → acquired image</text>
+<path d='M275 510V545' class='flow'/>
+<rect x='75' y='550' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='580' r='16' fill='#1d4ed8'/><text x='102' y='586' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>5</text><text x='130' y='576' class='label'>Reset this slot&apos;s fence</text><text x='130' y='598' class='small'>The new submission will signal it</text>
+<path d='M275 610V645' class='flow'/>
+<rect x='75' y='650' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='680' r='16' fill='#1d4ed8'/><text x='102' y='686' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>6</text><text x='130' y='676' class='label'>Submit commands to the GPU</text><text x='130' y='698' class='small'>Attach image wait and completion signals</text>
+<path d='M275 710V745' class='flow'/>
+<rect x='75' y='750' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='780' r='16' fill='#1d4ed8'/><text x='102' y='786' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>7</text><text x='130' y='776' class='label'>Request presentation</text><text x='130' y='798' class='small'>Attach a wait for rendering completion</text>
+<path d='M275 810V845' class='flow'/>
+<rect x='75' y='850' width='405' height='60' rx='9' fill='#dbeafe' stroke='#93c5fd'/><circle cx='102' cy='880' r='16' fill='#1d4ed8'/><text x='102' y='886' text-anchor='middle' style='fill:white;font-size:16px;font-weight:700'>8</text><text x='130' y='876' class='label'>Advance to the next slot</text><text x='130' y='898' class='small'>No explicit wait for this new submission</text>
+<text x="90" y="955" class="label">CPU can begin the next iteration</text><text x="90" y="982" class="small">while this submission is still running.</text>
+
+<rect x="590" y="150" width="290" height="60" rx="9" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="605" y="176" class="label">Earlier use of this slot finishes</text><text x="605" y="198" class="small">Not necessarily the previous frame</text>
+<path d="M590 180H480" class="signal"/><text x="505" y="164" class="note">fence</text>
+<rect x="590" y="350" width="290" height="60" rx="9" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="605" y="376" class="label">Tracked graphics work finishes</text><text x="605" y="398" class="small">Extra image check in my implementation</text>
+<path d="M590 380H480" class="signal"/><text x="505" y="364" class="note">fence</text>
+
+<path d="M480 265H1145V280" class="flow"/>
+<rect x="1015" y="285" width="260" height="70" rx="9" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="1030" y="311" class="label">Acquired image becomes ready</text><text x="1030" y="335" class="small">Signals imageAvailable</text>
+<path d="M1015 330H950V485H880" class="signal"/>
+<text x="958" y="420" class="note">signal</text>
+<rect x="590" y="440" width="290" height="90" rx="16" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+<text x="605" y="464" class="label">Semaphore · per frame slot</text>
+<text x="605" y="490" class="small" style="font-family:Consolas,monospace;font-size:13px">_imageAvailable[_currentFrame]</text>
+<text x="605" y="514" class="note">Image ready → allow GPU work</text>
+<path d="M735 530V650" class="signal"/>
+<text x="750" y="590" class="note">wait · attached by step 6</text>
+
+<path d="M480 680H590" class="flow"/>
+<rect x="590" y="650" width="290" height="60" rx="9" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="605" y="676" class="label">Wait for image availability</text><text x="605" y="698" class="small">At the color-output stage</text>
+<path d="M735 710V745" class="flow"/>
+<rect x="590" y="750" width="290" height="65" rx="9" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="605" y="777" class="label">Render into the acquired image</text><text x="605" y="800" class="small">Execute the submitted commands</text>
+<path d="M735 815V855" class="flow"/>
+<rect x="590" y="860" width="290" height="60" rx="9" fill="#ccfbf1" stroke="#5eead4"/>
+<text x="605" y="886" class="label">Rendering / submission complete</text><text x="605" y="908" class="small">Signal renderFinished and frame fence</text>
+
+<path d="M480 780H535V1100H1015" class="flow"/>
+<rect x="1015" y="1070" width="260" height="60" rx="9" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="1030" y="1096" class="label">Wait for rendering to finish</text><text x="1030" y="1118" class="small">Wait attached by CPU step 7</text>
+<path d="M880 890H950V985H1015" class="signal"/><text x="965" y="962" class="note">signal</text>
+<rect x="1015" y="945" width="260" height="80" rx="16" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+<text x="1030" y="968" class="label">Semaphore · per image</text>
+<text x="1030" y="994" class="small" style="font-family:Consolas,monospace;font-size:13px">_renderFinished[imageIndex]</text>
+<text x="1030" y="1015" class="note">Rendering done → allow presentation</text>
+<path d="M1145 1025V1070" class="signal"/>
+<text x="1165" y="1053" class="note">wait (7)</text>
+<path d="M1145 1130V1170" class="flow"/>
+<rect x="1015" y="1170" width="260" height="50" rx="9" fill="#ede9fe" stroke="#c4b5fd"/>
+<text x="1030" y="1200" class="label">Image eligible for presentation</text>
+
+<path d="M735 920V1160H275V1200" class="signal"/>
+<text x="310" y="1140" class="note">frame fence → step 1 when the CPU reuses this slot</text>
+<rect x="75" y="1205" width="805" height="55" rx="9" fill="#fff7ed" stroke="#fdba74"/>
+<text x="95" y="1238" class="label">CPU waits on fences. GPU / presentation work waits on semaphores.</text>
+<text x="1010" y="1245" class="small">Actual display timing depends</text><text x="1010" y="1267" class="small">on present mode and platform.</text>
+</svg>
