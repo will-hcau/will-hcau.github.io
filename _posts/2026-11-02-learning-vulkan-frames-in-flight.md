@@ -1,4 +1,6 @@
 ---
+image:
+  path: /assets/img/vulkan-first-triangle.png
 title: "Episode 17: Frames in Flight — Keeping the Work Moving"
 date: 2026-11-02 00:00:00 +0900
 categories: [Vulkan]
